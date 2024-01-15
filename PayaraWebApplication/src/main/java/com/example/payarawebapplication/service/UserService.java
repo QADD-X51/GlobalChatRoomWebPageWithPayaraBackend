@@ -32,14 +32,12 @@ public class UserService {
         userRepo.delete(userId);
     }
 
-    private boolean usernameTaken(String username)
-    {
+    private boolean usernameTaken(String username) {
         UserEntity user = userRepo.getByUsername(username);
         return user != null;
     }
 
-    private String ValidUser(UserEntity user)
-    {
+    private String ValidUser(UserEntity user) {
         if(this.usernameTaken(user.getUsername())) return "Username taken.";
 
         if(user.getUsername().length() > 150) return "Username too long.";

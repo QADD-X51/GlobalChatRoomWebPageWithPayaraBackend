@@ -13,21 +13,18 @@ public class UserRepository {
     private final EntityManagerFactory entityManagerFactory;
     private final EntityManager entityManager;
 
-    public UserRepository()
-    {
+    public UserRepository() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("MSUnit");
         this.entityManager = entityManagerFactory.createEntityManager();
     }
 
-    public void insert(UserEntity user)
-    {
+    public void insert(UserEntity user) {
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
     }
 
-    public void update(UserEntity user)
-    {
+    public void update(UserEntity user) {
         entityManager.getTransaction().begin();
         entityManager.merge(user);
         entityManager.getTransaction().commit();
