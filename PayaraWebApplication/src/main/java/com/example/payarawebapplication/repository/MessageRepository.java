@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class MessageRepository {
@@ -45,6 +46,13 @@ public class MessageRepository {
 
     public List<MessageEntity> getAll() {
         TypedQuery<MessageEntity> query = entityManager.createQuery("SELECT u FROM MessageEntity u", MessageEntity.class);
+        return query.getResultList();
+    }
+
+    public List<MessageEntity> getAllAfterDate(LocalDateTime targetDate) {
+        TypedQuery<MessageEntity> query = entityManager.createQuery("SELECT u FROM MessageEntity u " +
+                                                                       "WHERE u.date > :targetDate", MessageEntity.class);
+        query.setParameter("targetDate", targetDate);
         return query.getResultList();
     }
 

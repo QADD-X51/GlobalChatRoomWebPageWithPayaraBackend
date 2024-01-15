@@ -1,10 +1,12 @@
 package com.example.payarawebapplication.service;
 
+import com.example.payarawebapplication.helper.MessageSendObject;
 import com.example.payarawebapplication.model.MessageEntity;
 import com.example.payarawebapplication.repository.MessageRepository;
 import jakarta.inject.Inject;
 
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class MessageService {
     @Inject
@@ -30,9 +32,34 @@ public class MessageService {
         repository.delete(messageId);
     }
 
-    private boolean ValidMessage(MessageEntity message) {
-
-
+    private boolean validMessage(MessageEntity message) {
         return true;
+    }
+
+    public List<MessageEntity> getAllAfterDate(LocalDateTime targetDate) {
+        return repository.getAllAfterDate(targetDate);
+    }
+
+    public MessageSendObject EntityToSendObject(MessageEntity target)
+    {
+        return new MessageSendObject(target);
+    }
+
+    public List<MessageSendObject> EntityToSendObject(List<MessageEntity> messageList) {
+        List<MessageSendObject> toReturn = new ArrayList<>();
+        for(MessageEntity messageEntity : messageList) {
+            toReturn.add(new MessageSendObject(messageEntity));
+        }
+
+        return toReturn;
+    }
+
+    public boolean insertValid(MessageEntity message) {
+        boolean result = this.validMessage(message);
+        if(result) {
+            this.insert(message);
+        }
+
+        return result;
     }
 }
