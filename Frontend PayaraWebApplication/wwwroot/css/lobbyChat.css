@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url("../lib/images/background.jpg");
+    background-position: center;
+    background-size: cover; 
+}
+
+.chat-button {
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    position: absolute;
+    left: 85%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.chat-button.enabled {
+    background-image: linear-gradient(to bottom, #FFA500, #FFD700, #FFA500);
+    cursor: pointer;
+}
+
+.chat-button.disabled {
+    background-image: linear-gradient(to right, #e0e0e0, #b3b3b3);
+}
+
+.chat-container {
+    display: block;
+    background-color: #B0E2FF;
+    border: 10px solid #ffe27f;
+    position: fixed;
+    border-radius: 20px;
+    width: 85%;
+    height: 85%;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.message-chatContainer {
+    height: 85%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.messageChat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #000000;
+    font-size : 16px;
+}
+
+.input-chatContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-end;
+    height: 13.5%;
+    margin-top: 5px;
+}
+
+.input-chatTextToSend {
+    display: block;
+    background-color: #f0f0f0;
+    height: 100%;
+    width: 80%;
+    overflow-y: auto;
+    padding: 5px;
+    margin-right: auto;
+    border-bottom-left-radius: 15px;
+    font-size: 24px;
+}
+
+.button-sendChatText {
+    display: block;
+    background-color: #f0f0f0;
+    border: 2px solid black;
+    height: 100%;
+    width: 20%;
+    margin-left: auto;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+}
+
+.button-sendChatText:before {
+    content: "\f064";
+    font-family: "Font Awesome 5 Free";
+    font-size: 30px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.messageContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #c8dce6;
+    border-radius: 15px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.bubble {
+    background-color: #3498db;
+    color: #000000;
+    border-radius: 15px;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.shortUsername {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left : 5px;
+    margin-right : 5px;
+    font-weight : bold;
+}
+
+.fullUsername {
+    white-space: nowrap;
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: yellow;
+    background-image: linear-gradient(to bottom, #fff, #ffe27f);
+    border: none;
+    color: #333;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    top: 0%;
+    width: 100%;
+}
+
+.topnav .topnav-item {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.topnav .logout:hover {
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    background-color: #ffe27f;
+}
+
+.topnav-right {
+    float: right;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../wwwroot/css/lobbyChat.css" />
+</head>
+<body>
+    <div class="topnav">
+        <div class="topnav-item">ChatApp</div>
+        <div class="topnav-right">
+            <div class="topnav-item" id="usernameNavBar"></div>
+            <div class="topnav-item logout" id="logoutButton">Logout</div>
+        </div>
+    </div>
+    <div class="chat-container" id="chat-container">
+        <div class="message-chatContainer" id="message-chatContainer"></div>
+        <div class="input-chatContainer">
+            <input class="input-chatTextToSend" id="chatTextToSend" placeholder="Type a message..." />
+            <div class="button-sendChatText" id="sendChatText">
+            </div>
+        </div>
+    </div>
+    <script src="../wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script src="../wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="../wwwroot/js/lobbyChat.js"></script>
+</body>
