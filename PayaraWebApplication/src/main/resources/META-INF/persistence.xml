@@ -13,8 +13,8 @@
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost;database=TPDProj;user=PayaraUser;password=1q2w3e;encrypt=true;trustServerCertificate=true"/>
-            <property name="jakarta.persistence.jdbc.user" value="PayaraUser"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost;database=TPDProj;user=AdminUser;password=1q2w3e;encrypt=true;trustServerCertificate=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="AdminUser"/>
             <property name="jakarta.persistence.jdbc.password" value="1q2w3e"/>
         </properties>
     </persistence-unit>

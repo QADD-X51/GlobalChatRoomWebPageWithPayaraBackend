@@ -95,6 +95,7 @@ registerButton.onclick = function () {
                         registerButton.classList.add("disabled");
                         loginButton.classList.remove("disabled");
                         errorText.innerHTML = " ";
+                        confirmPasswordField.querySelector('input').value = "";
                         return response.text();
                     } else {
                         return response.text().then(error => { throw error; });

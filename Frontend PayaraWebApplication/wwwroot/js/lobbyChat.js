@@ -2,6 +2,7 @@ const baseUrl = "http://localhost:8080/PayaraWebApplication-1.0-SNAPSHOT/main";
 const baseAddressUrl = window.location.href.replace(/\/[^\/]*$/, "/");
 let sendChatTextButton = document.getElementById('sendChatText');
 let logoutButton = document.getElementById('logoutButton');
+let chatTextToSendField = document.getElementById('chatTextToSend');
 var lastFormattedDate = "";
 
 function padZero(num) {
@@ -229,7 +230,6 @@ function updateMessages() {
 setInterval(updateMessages, 1000);
 
 sendChatTextButton.onclick = function () {
-    let chatTextToSendField = document.getElementById('chatTextToSend');
     var userText = chatTextToSendField.value;
     if (userText.length > 0) {
         const getAllURL = `${baseUrl}/message/add`;
@@ -246,6 +246,26 @@ sendChatTextButton.onclick = function () {
         chatTextToSendField.value = '';
     }
 }
+
+chatTextToSendField.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        var userText = chatTextToSendField.value;
+        if (userText.length > 0) {
+            const getAllURL = `${baseUrl}/message/add`;
+            fetch(getAllURL, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: userText,
+                    senderId: sessionStorage.getItem("id"),
+                })
+            });
+            chatTextToSendField.value = '';
+        }
+    }
+})
 
 logoutButton.onclick = function () {
     sessionStorage.removeItem("username");
