@@ -2,7 +2,9 @@ package com.example.payarawebapplication.service;
 
 import com.example.payarawebapplication.helper.MessageSendObject;
 import com.example.payarawebapplication.model.MessageEntity;
+import com.example.payarawebapplication.model.UserEntity;
 import com.example.payarawebapplication.repository.MessageRepository;
+import com.example.payarawebapplication.repository.UserRepository;
 import jakarta.inject.Inject;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,8 @@ import java.util.*;
 public class MessageService {
     @Inject
     private MessageRepository repository;
+    @Inject
+    private UserRepository userRepo;
 
     public List<MessageEntity> getAll() {
         return repository.getAll();
@@ -48,7 +52,10 @@ public class MessageService {
     public List<MessageSendObject> EntityToSendObject(List<MessageEntity> messageList) {
         List<MessageSendObject> toReturn = new ArrayList<>();
         for(MessageEntity messageEntity : messageList) {
-            toReturn.add(new MessageSendObject(messageEntity));
+            UserEntity userEntity = userRepo.getById(messageEntity.getUser().getID());
+            MessageSendObject toSend = new MessageSendObject(messageEntity);
+            toSend.setUsername(userEntity.getUsername());
+            toReturn.add(toSend);
         }
 
         return toReturn;

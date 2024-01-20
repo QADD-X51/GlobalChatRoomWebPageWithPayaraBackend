@@ -18,6 +18,8 @@ public class ApplicationMain extends Application {
         classes.add(UserService.class);
         classes.add(MessageResource.class);
         classes.add(MessageService.class);
+
+        classes.add(CorsFilter.class);
         return classes;
     }
 }
