@@ -1,10 +1,13 @@
 package com.example.payarawebapplication.resouce;
 
 import com.example.payarawebapplication.helper.LoginObject;
-import com.example.payarawebapplication.helper.SimpleUser;
 import com.example.payarawebapplication.model.UserEntity;
-import com.example.payarawebapplication.service.UserService;
-import jakarta.inject.Inject;
+import com.example.payarawebapplication.service.UserServiceBean;
+import com.example.payarawebapplication.service.interfaces.UserService;
+import jakarta.annotation.ManagedBean;
+import jakarta.ejb.EJB;
+import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -14,20 +17,20 @@ import java.util.List;
 @Path("user")
 public class UserResource {
 
-    @Inject
-    private UserService userService;
+    @EJB
+    private UserService userServiceBean;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserEntity> getAllUsers() {
-        return userService.getAll();
+        return userServiceBean.getAll();
     }
 
     @GET
     @Path("/id/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserEntity getUserById(@PathParam("userId") Long userId) {
-        return userService.getById(userId);
+        return userServiceBean.getById(userId);
     }
 
     @GET
@@ -40,7 +43,7 @@ public class UserResource {
         userEntity.setPassword(password);
 
         LoginObject toReturn = new LoginObject();
-        UserEntity returnedUser = userService.getByUserCredentials(userEntity);
+        UserEntity returnedUser = userServiceBean.getByUserCredentials(userEntity);
         if(returnedUser == null) {
             toReturn.setUserId(-1);
             toReturn.setValidationResult("Wrong credentials.");
@@ -58,7 +61,7 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response register(UserEntity userEntity) {
 
-        String validationResult = userService.insertValid(userEntity);
+        String validationResult = userServiceBean.insertValid(userEntity);
         if(validationResult.equals("Ok")) {
             return Response.status(Response.Status.CREATED)
                     .entity("User registered successfully.")
@@ -73,18 +76,18 @@ public class UserResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(UserEntity user) {
-        userService.insert(user);
+        userServiceBean.insert(user);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateUser(UserEntity user) {
-        userService.update(user);
+        userServiceBean.update(user);
     }
 
     @DELETE
     @Path("/{userId}")
     public void delete(@PathParam("userId") Long userId) {
-        userService.delete(userId);
+        userServiceBean.delete(userId);
     }
 }

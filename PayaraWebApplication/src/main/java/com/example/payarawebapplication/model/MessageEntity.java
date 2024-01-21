@@ -3,12 +3,13 @@ package com.example.payarawebapplication.model;
 import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name="Messages")
-public class MessageEntity {
+public class MessageEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;

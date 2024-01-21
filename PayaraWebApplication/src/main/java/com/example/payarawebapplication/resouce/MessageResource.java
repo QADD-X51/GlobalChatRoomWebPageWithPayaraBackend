@@ -4,8 +4,8 @@ import com.example.payarawebapplication.helper.MessageRecievedObject;
 import com.example.payarawebapplication.helper.MessageSendObject;
 import com.example.payarawebapplication.model.MessageEntity;
 import com.example.payarawebapplication.model.UserEntity;
-import com.example.payarawebapplication.service.MessageService;
-import jakarta.inject.Inject;
+import com.example.payarawebapplication.service.interfaces.MessageService;
+import jakarta.ejb.EJB;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -14,7 +14,8 @@ import java.util.List;
 
 @Path("message")
 public class MessageResource {
-    @Inject
+
+    @EJB
     private MessageService service;
 
     @GET

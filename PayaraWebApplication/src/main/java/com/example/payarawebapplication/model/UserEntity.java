@@ -4,11 +4,12 @@ import com.sun.istack.NotNull;
 import jakarta.enterprise.inject.Model;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "Users")
-public class UserEntity {
+public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
