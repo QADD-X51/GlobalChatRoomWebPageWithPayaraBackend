@@ -2,7 +2,6 @@ package com.example.payarawebapplication.service.interfaces;
 
 import com.example.payarawebapplication.helper.MessageSendObject;
 import com.example.payarawebapplication.model.MessageEntity;
-import jakarta.ejb.Remote;
 
 import java.time.LocalDateTime;
 import java.util.List;

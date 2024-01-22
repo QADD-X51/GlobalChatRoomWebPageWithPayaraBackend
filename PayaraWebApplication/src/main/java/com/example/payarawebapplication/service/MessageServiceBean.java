@@ -6,14 +6,12 @@ import com.example.payarawebapplication.model.UserEntity;
 import com.example.payarawebapplication.repository.MessageRepository;
 import com.example.payarawebapplication.repository.UserRepository;
 import com.example.payarawebapplication.service.interfaces.MessageService;
-import jakarta.ejb.Remote;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
-//@Remote(MessageService.class)
 @Stateless
 public class MessageServiceBean implements MessageService {
     @Inject

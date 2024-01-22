@@ -1,5 +1,4 @@
 package com.example.payarawebapplication.service.interfaces;
-import jakarta.ejb.Remote;
 
 import java.util.List;
 

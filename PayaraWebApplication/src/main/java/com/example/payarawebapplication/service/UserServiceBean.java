@@ -4,7 +4,6 @@ import com.example.payarawebapplication.helper.SimpleUser;
 import com.example.payarawebapplication.model.UserEntity;
 import com.example.payarawebapplication.repository.UserRepository;
 import com.example.payarawebapplication.service.interfaces.UserService;
-import jakarta.ejb.Remote;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -68,7 +67,7 @@ public class UserServiceBean implements UserService {
     @Override
     public String insertValid(UserEntity user) {
         String validationString = this.ValidUser(user);
-        if(validationString.equals("Ok")) this.insert(user);;
+        if(validationString.equals("Ok")) this.insert(user);
 
         return validationString;
     }

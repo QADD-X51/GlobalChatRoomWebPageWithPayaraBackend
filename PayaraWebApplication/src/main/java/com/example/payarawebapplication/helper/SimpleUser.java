@@ -1,7 +1,5 @@
 package com.example.payarawebapplication.helper;
 
-import java.util.List;
-
 public class SimpleUser {
 
     private String username;

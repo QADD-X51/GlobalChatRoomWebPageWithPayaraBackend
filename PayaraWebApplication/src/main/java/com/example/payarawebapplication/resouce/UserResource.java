@@ -2,12 +2,8 @@ package com.example.payarawebapplication.resouce;
 
 import com.example.payarawebapplication.helper.LoginObject;
 import com.example.payarawebapplication.model.UserEntity;
-import com.example.payarawebapplication.service.UserServiceBean;
 import com.example.payarawebapplication.service.interfaces.UserService;
-import jakarta.annotation.ManagedBean;
 import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;

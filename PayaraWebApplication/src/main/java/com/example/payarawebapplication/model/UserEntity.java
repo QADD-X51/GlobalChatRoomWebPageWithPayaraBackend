@@ -1,7 +1,6 @@
 package com.example.payarawebapplication.model;
 
 import com.sun.istack.NotNull;
-import jakarta.enterprise.inject.Model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;

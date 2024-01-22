@@ -2,7 +2,6 @@ package com.example.payarawebapplication.repository;
 
 import com.example.payarawebapplication.model.MessageEntity;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -49,8 +48,4 @@ public class MessageRepository {
         return query.getResultList();
     }
 
-    public List<MessageEntity> getAllAfterDate() {
-        TypedQuery<MessageEntity> query = entityManager.createQuery("SELECT u FROM MessageEntity u", MessageEntity.class);
-        return query.getResultList();
-    }
 }

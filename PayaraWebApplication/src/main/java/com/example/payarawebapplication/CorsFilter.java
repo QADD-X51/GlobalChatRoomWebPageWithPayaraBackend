@@ -1,6 +1,5 @@
 package com.example.payarawebapplication;
 
-import jakarta.servlet.*;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
